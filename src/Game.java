@@ -18,7 +18,7 @@ static class CannonGame extends BasicGame {
     int Shorts;
     int Score;
     boolean InsideGame = false;
-
+    Image InitBackground;
     // Declaramos el nombre del juego en el constructor
     public CannonGame() {
         super("Cannon Game");
@@ -34,6 +34,7 @@ static class CannonGame extends BasicGame {
         ball = new Ball();
         target = new Target();
         landscape = new Landscape();
+        InitBackground = ResourceManager.getImage("resources/InitBackground.jpg");
 
         //Declaramos el número de tiros y la puntuación.
         Shorts = 5;
@@ -42,6 +43,14 @@ static class CannonGame extends BasicGame {
     // Aquí debemos actualizar el juego.
     @Override
     public void update(GameContainer gameContainer, int i) throws SlickException {
+        Input input = gameContainer.getInput();
+        if (input.isKeyDown(Input.KEY_ENTER)) {
+            InsideGame = true;
+        }
+
+        if (input.isKeyDown(Input.KEY_ESCAPE)) {
+            gameContainer.exit();
+        }
 
     }
     // Cargamos las imagenes del juego.
@@ -53,7 +62,8 @@ static class CannonGame extends BasicGame {
         target.render(gameContainer,graphics);
 
     }else{
-
+        InitBackground = InitBackground.getScaledCopy(gameContainer.getWidth(), gameContainer.getHeight());
+        graphics.drawImage(InitBackground, 0, 0);
     }
     }
 }
