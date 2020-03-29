@@ -48,6 +48,9 @@ static class CannonGame extends BasicGame {
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
     if(InsideGame){
+        landscape.render(gameContainer,graphics);
+        cannon.render(gameContainer,graphics);
+
     }else{
 
     }
