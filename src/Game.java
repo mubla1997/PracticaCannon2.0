@@ -18,13 +18,25 @@ static class CannonGame extends BasicGame {
     int Shorts;
     int Score;
 
+    // Declaramos el nombre del juego en el constructor
     public CannonGame() {
         super("Cannon Game");
     }
-
+    
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
+    // Capamos los Fps a 60 para una mejor fluidez del juego.
+        gameContainer.setTargetFrameRate(60);
 
+    // Declaramos los componentes de nuestro juego.
+        cannon = new Cannon();
+        ball = new Ball();
+        target = new Target();
+        landscape = new Landscape();
+
+        //Declaramos el número de tiros y la puntuación.
+        Shorts = 5;
+        Score = 0;
     }
 
     @Override
