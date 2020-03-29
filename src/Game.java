@@ -17,12 +17,13 @@ static class CannonGame extends BasicGame {
     static Landscape landscape;
     int Shorts;
     int Score;
+    boolean InsideGame = false;
 
     // Declaramos el nombre del juego en el constructor
     public CannonGame() {
         super("Cannon Game");
     }
-    
+
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
     // Capamos los Fps a 60 para una mejor fluidez del juego.
@@ -38,16 +39,19 @@ static class CannonGame extends BasicGame {
         Shorts = 5;
         Score = 0;
     }
-
+    // Aquí debemos actualizar el juego.
     @Override
     public void update(GameContainer gameContainer, int i) throws SlickException {
 
     }
-
+    // Cargamos las imagenes del juego.
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
+    if(InsideGame){
+    }else{
 
     }
-}{
     }
+}
+
 }
