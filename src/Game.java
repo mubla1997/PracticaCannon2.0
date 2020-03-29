@@ -50,6 +50,7 @@ static class CannonGame extends BasicGame {
     if(InsideGame){
         landscape.render(gameContainer,graphics);
         cannon.render(gameContainer,graphics);
+        target.render(gameContainer,graphics);
 
     }else{
 
