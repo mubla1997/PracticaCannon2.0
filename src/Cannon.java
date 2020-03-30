@@ -1,15 +1,14 @@
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
 
 public class Cannon extends Game.CannonGame {
     Image cannon;
     Image cannon_base;
-
+    double rotation = 5;
+    double Strength = 0;
 
     @Override
     public void update(GameContainer gameContainer, int i) throws SlickException {
+        Input input = gameContainer.getInput();
 
     }
     @Override

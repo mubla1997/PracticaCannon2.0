@@ -1,7 +1,7 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.Graphics;
 
-public class Game {
+public class Game {  
     // Ventana del juego.
     public static void main(String[] args) throws SlickException {
         CannonGame cg = new CannonGame();
@@ -15,12 +15,13 @@ static class CannonGame extends BasicGame {
     static Ball ball;
     static Target target;
     static Landscape landscape;
-    int Shorts;
+    int Shots;
     int Score;
     boolean InsideGame = false;
     Image InitBackground;
     Font font20;
     Font font50;
+    int contador = 0;
 
     // Declaramos el nombre del juego en el constructor
     public CannonGame() {
@@ -42,7 +43,7 @@ static class CannonGame extends BasicGame {
         font50 = ResourceManager.getFont("resources/WHITRABT.ttf", 50);
 
         //Declaramos el número de tiros y la puntuación.
-        Shorts = 5;
+        Shots = 5;
         Score = 0;
     }
     // Aquí debemos actualizar el juego.
@@ -62,7 +63,7 @@ static class CannonGame extends BasicGame {
             cannon.update(gameContainer, i);
             target.update(gameContainer, i);
         }
-
+        contador++;
     }
     // Cargamos las imagenes del juego.
     @Override
@@ -73,17 +74,32 @@ static class CannonGame extends BasicGame {
         landscape.render(gameContainer,graphics);
         cannon.render(gameContainer,graphics);
         target.render(gameContainer, graphics);
+        font20.drawString(10,20,"SHOTS: " + Shots);
+        font20.drawString(10,40,"SCORE: " + Score);
 
     }else{
 
         InitBackground = InitBackground.getScaledCopy(gameContainer.getWidth(), gameContainer.getHeight());
         graphics.drawImage(InitBackground, 0, 0);
+
         font50.drawString(gameContainer.getWidth() /2 -290,
                 gameContainer.getHeight()/2,"PRESS");
-        font50.drawString(gameContainer.getWidth() /2 -80,
-                gameContainer.getHeight()/2,"ENTER");
+        if(contador < 60) {
+            font50.drawString(gameContainer.getWidth() / 2 - 80,
+                    gameContainer.getHeight() / 2 , "ENTER",Color.cyan);
+        }
+        if(contador > 60){
+            font50.drawString(gameContainer.getWidth() / 2 - 80,
+                    gameContainer.getHeight() / 2 , "ENTER",Color.green);
+        }
+        if(contador > 120){
+            contador = 0;
+        }
         font50.drawString(gameContainer.getWidth() /2 + 120,
-                gameContainer.getHeight()/2,"TO PLAY");
+                gameContainer.getHeight()/2,"TO START");
+
+        font50.drawString(gameContainer.getWidth()/2 -100,
+                gameContainer.getHeight() + - 10,"Created by Pablo",Color.black);
 
     }
     }
