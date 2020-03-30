@@ -19,6 +19,9 @@ static class CannonGame extends BasicGame {
     int Score;
     boolean InsideGame = false;
     Image InitBackground;
+    Font font20;
+    Font font50;
+
     // Declaramos el nombre del juego en el constructor
     public CannonGame() {
         super("Cannon Game");
@@ -35,6 +38,8 @@ static class CannonGame extends BasicGame {
         target = new Target();
         landscape = new Landscape();
         InitBackground = ResourceManager.getImage("resources/FirstLandscape.png");
+        font20 = ResourceManager.getFont("resources/WHITRABT.ttf", 20);
+        font50 = ResourceManager.getFont("resources/WHITRABT.ttf", 50);
 
         //Declaramos el número de tiros y la puntuación.
         Shorts = 5;
@@ -73,6 +78,13 @@ static class CannonGame extends BasicGame {
 
         InitBackground = InitBackground.getScaledCopy(gameContainer.getWidth(), gameContainer.getHeight());
         graphics.drawImage(InitBackground, 0, 0);
+        font50.drawString(gameContainer.getWidth() /2 -290,
+                gameContainer.getHeight()/2,"PRESS");
+        font50.drawString(gameContainer.getWidth() /2 -80,
+                gameContainer.getHeight()/2,"ENTER");
+        font50.drawString(gameContainer.getWidth() /2 + 120,
+                gameContainer.getHeight()/2,"TO PLAY");
+
     }
     }
 }
