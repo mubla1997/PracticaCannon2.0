@@ -27,7 +27,7 @@ static class CannonGame extends BasicGame {
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
     // Capamos los Fps a 60 para una mejor fluidez del juego.
-        gameContainer.setTargetFrameRate(60);
+        gameContainer.setTargetFrameRate(59);
 
     // Declaramos los componentes de nuestro juego.
         cannon = new Cannon();
@@ -43,7 +43,9 @@ static class CannonGame extends BasicGame {
     // Aquí debemos actualizar el juego.
     @Override
     public void update(GameContainer gameContainer, int i) throws SlickException {
+
         Input input = gameContainer.getInput();
+
         if (input.isKeyDown(Input.KEY_ENTER)) {
             InsideGame = true;
         }
@@ -51,17 +53,24 @@ static class CannonGame extends BasicGame {
         if (input.isKeyDown(Input.KEY_ESCAPE)) {
             gameContainer.exit();
         }
+        if(InsideGame){
+            cannon.update(gameContainer, i);
+            target.update(gameContainer, i);
+        }
 
     }
     // Cargamos las imagenes del juego.
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
-    if(InsideGame){
+
+    if (InsideGame){
+
         landscape.render(gameContainer,graphics);
         cannon.render(gameContainer,graphics);
-        target.render(gameContainer,graphics);
+        target.render(gameContainer, graphics);
 
     }else{
+
         InitBackground = InitBackground.getScaledCopy(gameContainer.getWidth(), gameContainer.getHeight());
         graphics.drawImage(InitBackground, 0, 0);
     }
