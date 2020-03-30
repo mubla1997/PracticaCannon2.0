@@ -34,7 +34,7 @@ static class CannonGame extends BasicGame {
         ball = new Ball();
         target = new Target();
         landscape = new Landscape();
-        InitBackground = ResourceManager.getImage("resources/InitBackground.jpg");
+        InitBackground = ResourceManager.getImage("resources/FirstLandscape.jpg");
 
         //Declaramos el número de tiros y la puntuación.
         Shorts = 5;
