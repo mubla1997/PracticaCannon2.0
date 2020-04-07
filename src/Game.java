@@ -106,7 +106,6 @@ static class CannonGame extends BasicGame {
 
         font50.drawString(gameContainer.getWidth()/2 -100,
                 gameContainer.getHeight() + - 10,"Created by Pablo",Color.black);
-
     }
     }
 }
