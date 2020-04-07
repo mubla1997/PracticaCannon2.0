@@ -66,7 +66,10 @@ static class CannonGame extends BasicGame {
         }
         if (input.isKeyDown(Input.KEY_R)) {
             gameContainer.reinit();
+            Target.reset();
             InsideGame = false;
+            Shots = 5;
+            Score = 0;
         }
         if(InsideGame){
             cannon.update(gameContainer, i);
