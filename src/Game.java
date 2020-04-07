@@ -1,6 +1,7 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.Graphics;
 
+
 public class Game {  
     // Ventana del juego.
     public static void main(String[] args) throws SlickException {
@@ -42,6 +43,7 @@ static class CannonGame extends BasicGame {
         font20 = ResourceManager.getFont("resources/WHITRABT.ttf", 20);
         font50 = ResourceManager.getFont("resources/WHITRABT.ttf", 50);
 
+
         //Declaramos el número de tiros y la puntuación.
         Shots = 5;
         Score = 0;
@@ -76,7 +78,10 @@ static class CannonGame extends BasicGame {
         target.render(gameContainer, graphics);
         font20.drawString(10,20,"SHOTS: " + Shots);
         font20.drawString(10,40,"SCORE: " + Score);
-
+        font20.drawString(10,60,"Strength: ");
+        graphics.drawRect(130,50, (float) (5 + cannon.Strength),10);
+        graphics.setColor(Color.red);
+        font20.drawString(240,60, String.valueOf(cannon.Strength),Color.red);
     }else{
 
         InitBackground = InitBackground.getScaledCopy(gameContainer.getWidth(), gameContainer.getHeight());

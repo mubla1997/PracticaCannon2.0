@@ -23,6 +23,17 @@ public class Cannon extends Game.CannonGame {
                 rotation = cannon.getRotation() * -1;
             }
         }
+
+        if(input.isKeyDown(Input.KEY_RIGHT)){
+            if(Strength < 100){
+                Strength ++;
+            }
+        }
+        if(input.isKeyDown(Input.KEY_LEFT)){
+            if(Strength > 0){
+                Strength --;
+            }
+        }
     }
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
@@ -35,5 +46,7 @@ public class Cannon extends Game.CannonGame {
         graphics.drawImage(cannon_base,x,y + 30);
     }
     void updateRotation(double deltaRotation){}
+    void updateStrenght(double deltaStrenght){}
     double getRotation(){return 0;}
+    double getStrength(){return 0;}
 }
