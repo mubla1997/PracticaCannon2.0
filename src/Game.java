@@ -82,6 +82,7 @@ static class CannonGame extends BasicGame {
         graphics.drawRect(130,50, (float) (5 + cannon.Strength),10);
         graphics.setColor(Color.red);
         font20.drawString(240,60, String.valueOf(cannon.Strength),Color.red);
+        font20.drawString(gameContainer.getWidth()/2 - 390,80, "Angle: " + cannon.rotation,Color.green);
     }else{
 
         InitBackground = InitBackground.getScaledCopy(gameContainer.getWidth(), gameContainer.getHeight());
