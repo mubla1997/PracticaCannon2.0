@@ -49,4 +49,6 @@ public class Cannon extends Game.CannonGame {
     void updateStrenght(double deltaStrenght){}
     double getRotation(){return 0;}
     double getStrength(){return 0;}
+
+    //Posible nuevo balon con radiantes?
 }

@@ -61,8 +61,10 @@ static class CannonGame extends BasicGame {
             gameContainer.exit();
         }
 
-        if(input.isKeyDown(Input.KEY_SPACE)){
-
+        if(input.isKeyDown(Input.KEY_SPACE) && Shots > 0){
+            // Falta añadir la acción de disparar al pulsar espacio
+            // Añadir si da en la diana
+            //Añadir si falla
         }
         if (input.isKeyDown(Input.KEY_R)) {
             gameContainer.reinit();
