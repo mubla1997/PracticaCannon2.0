@@ -11,7 +11,7 @@ public class Cannon extends Game.CannonGame {
         Input input = gameContainer.getInput();
         // El cañon se mueve hacia abajo.
         if(input.isKeyDown(Input.KEY_DOWN)){
-            if(cannon.getRotation() * -1 < 5){
+            if(cannon.getRotation() * -1 > 5){
                 cannon.rotate(2);
                 rotation = cannon.getRotation() * -1;
             }
