@@ -43,7 +43,6 @@ static class CannonGame extends BasicGame {
         font20 = ResourceManager.getFont("resources/WHITRABT.ttf", 20);
         font50 = ResourceManager.getFont("resources/WHITRABT.ttf", 50);
 
-
         //Declaramos el número de tiros y la puntuación.
         Shots = 5;
         Score = 0;
@@ -61,11 +60,20 @@ static class CannonGame extends BasicGame {
         if (input.isKeyDown(Input.KEY_ESCAPE)) {
             gameContainer.exit();
         }
+
+        if(input.isKeyDown(Input.KEY_SPACE)){
+
+        }
+        if (input.isKeyDown(Input.KEY_R)) {
+            gameContainer.reinit();
+            InsideGame = false;
+        }
         if(InsideGame){
             cannon.update(gameContainer, i);
             target.update(gameContainer, i);
+            ball.update(gameContainer,i);
         }
-        contador++;
+        contador ++;
     }
     // Cargamos las imagenes del juego.
     @Override
@@ -83,6 +91,7 @@ static class CannonGame extends BasicGame {
         graphics.setColor(Color.red);
         font20.drawString(240,60, String.valueOf(cannon.Strength),Color.red);
         font20.drawString(gameContainer.getWidth()/2 - 390,80, "Angle: " + cannon.rotation,Color.green);
+
     }else{
 
         InitBackground = InitBackground.getScaledCopy(gameContainer.getWidth(), gameContainer.getHeight());
