@@ -34,6 +34,11 @@ public class Cannon extends Game.CannonGame {
                 Strength --;
             }
         }
+        if(input.isKeyDown(Input.KEY_SPACE)){
+            fire(ball);
+            // Añadir si da en la diana
+            //Añadir si falla
+        }
     }
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
@@ -44,11 +49,14 @@ public class Cannon extends Game.CannonGame {
         cannon_base = ResourceManager.getImage("resources/cannon_base.png");
         graphics.drawImage(cannon,x,y);
         graphics.drawImage(cannon_base,x,y + 30);
+        cannon.setCenterOfRotation(30,30);
+    }
+    void fire(Ball ball){
+        ball.SetFire();
     }
     void updateRotation(double deltaRotation){}
     void updateStrenght(double deltaStrenght){}
     double getRotation(){return 0;}
     double getStrength(){return 0;}
 
-    //Posible nuevo balon con radiantes?
 }
