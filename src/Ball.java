@@ -40,17 +40,24 @@ public class Ball extends Game.CannonGame {
                x += velocidadX;
                y -= velocidadY;
         }
+
     }
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
+
+        if(x > gameContainer.getWidth() || y > gameContainer.getHeight()){
+            setResetPosition();
+            fire = false;
+        }
+
         balon = ResourceManager.getImage("resources/ball.png");
         graphics.drawImage(balon, x, y);
         }
 
      void setResetPosition(){
         x = 30;
-        y = 650;
+        y = 460;
     }
     void SetFire(){
         fire = true;

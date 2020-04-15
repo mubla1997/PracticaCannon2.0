@@ -82,10 +82,9 @@ static class CannonGame extends BasicGame {
     if (InsideGame){
 
         landscape.render(gameContainer,graphics);
-        cannon.render(gameContainer,graphics);
-
-        target.render(gameContainer, graphics);
         ball.render(gameContainer, graphics);
+        cannon.render(gameContainer,graphics);
+        target.render(gameContainer, graphics);
         font20.drawString(10,20,"SHOTS: " + Shots);
         font20.drawString(10,40,"SCORE: " + Score);
         font20.drawString(10,60,"Strength: ");
