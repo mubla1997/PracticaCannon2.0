@@ -68,6 +68,7 @@ static class CannonGame extends BasicGame {
             Shots = 5;
             Score = 0;
         }
+
         if(InsideGame){
             cannon.update(gameContainer, i);
             target.update(gameContainer, i);
@@ -78,7 +79,7 @@ static class CannonGame extends BasicGame {
     // Cargamos las imagenes del juego.
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
-
+        // Parte visual del juego
     if (InsideGame){
 
         landscape.render(gameContainer,graphics);

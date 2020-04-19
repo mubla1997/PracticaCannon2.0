@@ -11,12 +11,7 @@ public class Target extends Game.CannonGame {
     Image target;
     static Random r = new Random();
     static int RandomPosition = r.nextInt(500) + 200;
-    Shape shape;
 
-    @Override
-    public void update(GameContainer gameContainer, int i) throws SlickException {
-
-    }
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
@@ -31,9 +26,5 @@ public class Target extends Game.CannonGame {
     static void reset(){
         RandomPosition = r.nextInt(450) + 250;
     }
-    Shape getShape() {
-        this.shape = new Rectangle(target.getWidth(), target.getHeight());
 
-        return shape;
     }
-}

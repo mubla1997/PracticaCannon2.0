@@ -5,7 +5,7 @@ public class Cannon extends Game.CannonGame {
     Image cannon_base;
     double rotation = 5;
     double Strength = 0;
-
+    boolean Disparo = false;
     @Override
     public void update(GameContainer gameContainer, int i) throws SlickException {
         Input input = gameContainer.getInput();
@@ -36,9 +36,12 @@ public class Cannon extends Game.CannonGame {
         }
         if(input.isKeyDown(Input.KEY_SPACE)){
             fire(ball);
+            Disparo = true;
+
             // Añadir si da en la diana
             //Añadir si falla
         }
+
     }
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
@@ -50,6 +53,10 @@ public class Cannon extends Game.CannonGame {
         graphics.drawImage(cannon,x,y);
         graphics.drawImage(cannon_base,x,y + 30);
         cannon.setCenterOfRotation(30,30);
+
+        if(Disparo){
+            Disparo = false;
+        }
     }
     void fire(Ball ball){
         ball.SetFire();

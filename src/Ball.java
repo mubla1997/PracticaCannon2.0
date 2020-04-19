@@ -8,10 +8,10 @@ public class Ball extends Game.CannonGame {
     //Variables
     double posInitX = 0;
     double posInitY = 0;
-    Integer posx;
-    Integer posy;
+    Integer posx = 30;
+    Integer posy = 465;
     double velocidad = 0;
-    double gravedad = -9.8;
+    double gravedad = -5.8;
     double angulo = 0;
     Image balon;
     float tiempo = 0;
@@ -33,12 +33,15 @@ public class Ball extends Game.CannonGame {
                 velocidadX = velocidad * Math.cos(angulo);
                 velocidadY = velocidad * Math.sin(angulo);
                 tiempo += 0.2;
-               /*
-                posx = (int) Math.floor((posInitX) + (velocidadX * tiempo));
-                posy = (int) Math.floor((posInitY) - (velocidadY * tiempo) + (tiempo * (tiempo / 2f)) * gravedad);
-                */
-               x += velocidadX;
-               y -= velocidadY;
+
+                x += velocidadX;
+                y -= velocidadY;
+                // Tiro parabolico ( No funciona )
+              /*
+                posx += (int) Math.floor((posInitX) + (velocidadX * tiempo));
+                posy -= (int) Math.floor((posInitY) - (velocidadY * tiempo) + (tiempo * (tiempo / 2f)) * gravedad);
+              */
+
         }
 
     }
@@ -57,7 +60,7 @@ public class Ball extends Game.CannonGame {
 
      void setResetPosition(){
         x = 30;
-        y = 460;
+        y = 465;
     }
     void SetFire(){
         fire = true;
